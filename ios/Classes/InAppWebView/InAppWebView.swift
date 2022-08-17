@@ -1565,6 +1565,8 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
         if useOnNavigationResponse == nil || !useOnNavigationResponse! {
             decisionHandler(.allow)
         }
+        
+        decisionHandler(.cancel)
     }
     
     public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
