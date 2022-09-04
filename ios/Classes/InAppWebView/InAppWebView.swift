@@ -1453,7 +1453,9 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
                  preferences: WKWebpagePreferences,
                  decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
         self.webView(webView, decidePolicyFor: navigationAction, decisionHandler: {(navigationActionPolicy) -> Void in
-            decisionHandler(navigationActionPolicy, preferences)
+            DispatchQueue.main.async {
+                decisionHandler(navigationActionPolicy, preferences)
+            }
         })
     }
     
